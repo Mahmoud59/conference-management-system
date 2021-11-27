@@ -1,0 +1,15 @@
+# App specific
+Django==3.2.4
+django-environ==0.8.1
+django-extensions==3.1.5
+djangorestframework==3.12.4
+
+#DOCS
+django-rest-swagger==2.2.0
+drf-yasg==1.20.0
+
+# Database
+psycopg2-binary==2.9.2
+
+# JWT
+djangorestframework-simplejwt==5.0.0
