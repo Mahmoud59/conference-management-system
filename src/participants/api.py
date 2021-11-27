@@ -13,7 +13,9 @@ class ParticipantViewSet(ModelViewSet):
     serializer_class = ParticipantSerializer
 
     def get_queryset(self):
-        return self.queryset.filter(talk=self.kwargs['talk_id'])
+        if self.kwargs.get('talk_id', None):
+            return self.queryset.filter(talk=self.kwargs['talk_id'])
+        return self.queryset
 
     def create(self, request, *args, **kwargs):
         request.data['talk'] = kwargs['talk_id']

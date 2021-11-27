@@ -13,7 +13,10 @@ class TalkViewSet(ModelViewSet):
     serializer_class = TalkSerializer
 
     def get_queryset(self):
-        return self.queryset.filter(conference=self.kwargs['conference_id'])
+        if self.kwargs.get('conference_id', None):
+            return self.queryset.filter(
+                conference=self.kwargs['conference_id'])
+        return self.queryset
 
     def create(self, request, *args, **kwargs):
         request.data['conference'] = kwargs['conference_id']

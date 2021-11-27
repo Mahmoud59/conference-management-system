@@ -12,6 +12,7 @@ participant_list = ParticipantViewSet.as_view({
 participant_detail = ParticipantViewSet.as_view({
     'put': 'update',
     'patch': 'partial_update',
+    'delete': 'destroy',
 })
 
 urlpatterns = format_suffix_patterns([
